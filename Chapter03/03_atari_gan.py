@@ -124,7 +124,7 @@ def iterate_batches(envs, batch_size=BATCH_SIZE):
         if len(batch) == batch_size:
             # Normalising input between -1 to 1
             batch_np = np.array(batch, dtype=np.float) * 2.0 / 255.0 - 1.0
-            yield torch.tensor(batch_np)
+            yield torch.FloatTensor(batch_np)
             batch.clear()
         if is_done:
             e.reset()
@@ -176,6 +176,7 @@ if __name__ == "__main__":
         gen_loss_v.backward()
         gen_optimizer.step()
         gen_losses.append(gen_loss_v.item())
+
 
         iter_no += 1
         if iter_no % REPORT_EVERY_ITER == 0:
