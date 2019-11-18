@@ -9,3 +9,4 @@ torchvision==0.2.1
 tensorboard-pytorch==0.7.1
 tensorflow==1.15.0
 tensorboard==1.15.0
+tensorboardX==1.9
